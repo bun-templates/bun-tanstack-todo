@@ -2,6 +2,8 @@
 
 This example shows a full-stack todo application built with [Bun](https://bun.com), [TanStack Start](https://tanstack.com/start), and PostgreSQL.
 
+[→ Live demo](http://bun-tanstack-todo.vercel.app/)
+
 ## Tech Stack
 
 - **Runtime and Package Manager**: [Bun](https://bun.com)
