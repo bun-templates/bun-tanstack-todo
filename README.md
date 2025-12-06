@@ -37,6 +37,17 @@ Add your connection string to `.env`:
 DATABASE_URL="postgresql://username:password@hostname:port/database"
 ```
 
+**Local PostgreSQL (Docker):**
+```bash
+# Start the database
+docker-compose up -d
+```
+
+Then add to `.env`:
+```bash
+DATABASE_URL="postgres://postgres:password@localhost:5432/todo_db"
+```
+
 **Local PostgreSQL (macOS):**
 ```bash
 brew install postgresql
