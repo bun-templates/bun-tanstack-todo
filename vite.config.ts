@@ -1,4 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
+import { devtools } from "@tanstack/devtools-vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import { nitro } from "nitro/vite";
@@ -14,6 +15,8 @@ const config = defineConfig({
 		exclude: ["bun"],
 	},
 	plugins: [
+		// strips TanStack devtools out of production builds, so it must come first
+		devtools(),
 		tailwindcss(),
 		tanstackStart(),
 		nitro({
