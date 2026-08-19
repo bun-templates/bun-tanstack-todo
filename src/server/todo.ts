@@ -37,7 +37,7 @@ export const getTodosFn = createServerFn({ method: "GET" }).handler(async () => 
 });
 
 export const createTodoFn = createServerFn({ method: "POST" })
-	.inputValidator(z.object({ title: z.string().min(1).max(500) }))
+	.validator(z.object({ title: z.string().min(1).max(500) }))
 	.handler(async ({ data }) => {
 		try {
 			const result = await sql`INSERT INTO todos (title) VALUES (${data.title}) RETURNING *`;
@@ -52,7 +52,7 @@ export const createTodoFn = createServerFn({ method: "POST" })
 	});
 
 export const toggleTodoCompleteFn = createServerFn({ method: "POST" })
-	.inputValidator(z.object({ id: z.number().int().positive() }))
+	.validator(z.object({ id: z.number().int().positive() }))
 	.handler(async ({ data }) => {
 		try {
 			const result = await sql`UPDATE todos SET completed = NOT completed WHERE id = ${data.id} RETURNING *`;
@@ -67,7 +67,7 @@ export const toggleTodoCompleteFn = createServerFn({ method: "POST" })
 	});
 
 export const deleteTodoFn = createServerFn({ method: "POST" })
-	.inputValidator(z.object({ id: z.number().int().positive() }))
+	.validator(z.object({ id: z.number().int().positive() }))
 	.handler(async ({ data }) => {
 		try {
 			const result = await sql`DELETE FROM todos WHERE id = ${data.id} RETURNING id`;

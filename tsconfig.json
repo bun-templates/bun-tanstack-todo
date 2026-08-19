@@ -6,7 +6,7 @@
 		"jsx": "react-jsx",
 		"module": "ESNext",
 		"lib": ["ES2022", "DOM", "DOM.Iterable"],
-		"types": ["vite/client", "bun-types"],
+		"types": ["vite/client", "bun", "node"],
 
 		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,
@@ -19,7 +19,6 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true,
-		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./src/*"]
 		}

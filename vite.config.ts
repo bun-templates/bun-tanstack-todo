@@ -3,14 +3,17 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import { nitro } from "nitro/vite";
 import { defineConfig } from "vite";
-import viteTsConfigPaths from "vite-tsconfig-paths";
 
 const config = defineConfig({
+	resolve: {
+		// resolve the "@/*" path alias from tsconfig.json
+		tsconfigPaths: true,
+	},
+	optimizeDeps: {
+		// "bun" is a runtime builtin, so the dev dependency scanner should not try to resolve it
+		exclude: ["bun"],
+	},
 	plugins: [
-		// this is the plugin that enables path aliases
-		viteTsConfigPaths({
-			projects: ["./tsconfig.json"],
-		}),
 		tailwindcss(),
 		tanstackStart(),
 		nitro({
